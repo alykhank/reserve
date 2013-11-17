@@ -1,7 +1,6 @@
 {% extends 'claim/base.html' %}
 
 {% block content %}
-	<h1>Reserve</h1>
 	{% for r in resource_list %}
 	<a href="{% url 'claim:detail' r.id %}"><h2>{{ r.name }} <small>{% if r.available %}is available{% else %}is unavailable{% endif %}</small></h2></a>
 	{% endfor %}

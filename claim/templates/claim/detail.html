@@ -1,7 +1,6 @@
 {% extends 'claim/base.html' %}
 
 {% block content %}
-	<h1>Reserve</h1>
 	<h2>{{ resource.name }} <small>{% if resource.available %}is available{% else %}is unavailable{% endif %}</small></h2>
 	<a type="button" href="{% url 'claim:claim' resource.id %}" class="btn btn-primary {% if not resource.available %}disabled{% endif %}">Claim</a>
 	<a type="button" href="{% url 'claim:release' resource.id %}" class="btn btn-primary {% if resource.available %}disabled{% endif %}">Release</a>

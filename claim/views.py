@@ -9,6 +9,11 @@ from django.conf import settings
 
 from claim.models import Resource
 
+class ResourceCreate(generic.edit.CreateView):
+	model = Resource
+	fields = '__all__'
+	success_url = 'claim:index'
+
 class IndexView(generic.ListView):
 	model = Resource
 	template_name = 'claim/index.html'

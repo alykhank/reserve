@@ -1,4 +1,4 @@
-from datetime import datetime
+from django.utils import timezone
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
@@ -19,7 +19,7 @@ def claim(request, pk):
 	resource = get_object_or_404(Resource, pk=pk)
 	if resource.available:
 		resource.available = False
-		resource.reservationTime = datetime.now()
+		resource.reservationTime = timezone.now()
 		resource.save()
 	else:
 		messages.error(request, 'Resource is unavailable.')

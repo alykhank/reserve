@@ -1,7 +1,29 @@
 body {
 	font-family: 'Maven Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	background: rgba(109,185,213,0.4);
+	color: rgb(15,15,24);
+	padding-top: 50px;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.navbar-default {
+	background: rgba(2,99,157, 0.7);
+	border: none;
+}
+
+.navbar-default .navbar-brand {
+	color: #ccc;
+	font-size: 3em;
+}
+
+.navbar-default .navbar-brand:hover {
+	color: #ddd;
+}
+
+.jumbotron {
+	margin: 2em;
+	background: rgba(248, 248, 248, 0.4);
 }

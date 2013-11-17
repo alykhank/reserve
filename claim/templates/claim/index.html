@@ -3,10 +3,10 @@
 {% block content %}
 	{% for r in resource_list %}
 	<div class="row">
-		<div class="col-md-1">
+		<div class="col-md-2">
 			<i class="fa fa-5x fa-gamepad"></i>
 		</div>
-		<div class="col-md-11">
+		<div class="col-md-10">
 			<a href="{% url 'claim:detail' r.id %}"><h2>{{ r.name }} <small>{% if r.available %}is available{% else %}reserved {{ r.minutes_since_reservation }}m ago, available in {{ r.minutes_to_available }}m{% endif %}</small></h2></a>
 		</div>
 	</div>

@@ -10,8 +10,8 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td>{{ resource.game_set.all.0.homeScore }}</td>
-				<td>{{ resource.game_set.all.0.awayScore }}</td>
+				<td>{{ resource.game_set.all.0.homeScore }} <a href="{% url 'claim:goal' resource_id=resource.id game_id=resource.game_set.all.0.id player=1 %}" class="btn btn-danger">Goal!</a></td>
+				<td>{{ resource.game_set.all.0.awayScore }} <a href="{% url 'claim:goal' resource_id=resource.id game_id=resource.game_set.all.0.id player=2 %}" class="btn btn-danger">Goal!</a></td>
 			</tr>
 		</tbody>
 	</table>

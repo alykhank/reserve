@@ -8,4 +8,5 @@ urlpatterns = patterns('',
 	url(r'^claim/(?P<pk>\d+)/$', views.claim, name='claim'),
 	url(r'^release/(?P<pk>\d+)/$', views.release, name='release'),
 	url(r'^create/$', views.ResourceCreate.as_view(), name='create'),
+	url(r'^goal/(?P<resource_id>\d+)/(?P<game_id>\d+)/(?P<player>\d+)/$', views.goal, name='goal'),
 )

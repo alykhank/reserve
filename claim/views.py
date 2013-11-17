@@ -30,7 +30,8 @@ def claim(request, pk):
 		resource.available = False
 		resource.reservationTime = timezone.now()
 		resource.save()
-		game = Game(resource, userEmail, friendEmail)
+		game = Game(resource=resource, player1=userEmail, player2=friendEmail, homeScore=0, awayScore=0)
+		game.save()
 		send_mail('[Reserve] ' + resource.name + ' Claimed', 'A match between ' + userEmail + ' and ' + friendEmail + ' will now commence.', settings.SERVER_EMAIL, [userEmail, friendEmail], fail_silently=False)
 	else:
 		messages.error(request, 'Resource is unavailable.')
@@ -44,3 +45,12 @@ def release(request, pk):
 	else:
 		messages.error(request, 'Resource is available.')
 	return HttpResponseRedirect(reverse('claim:index'))
+
+def goal(request, resource_id, game_id, player):
+	game = get_object_or_404(Game, pk=game_id)
+	if player == '1':
+		game.homeScore += 1
+	elif player == '2':
+		game.awayScore += 1
+	game.save()
+	return HttpResponseRedirect(reverse('claim:detail', kwargs={'pk': resource_id}))

@@ -2,6 +2,20 @@
 
 {% block content %}
 	<h2>{{ resource.name }} <small>{% if resource.available %}is available{% else %}is unavailable{% endif %}</small></h2>
-	<a type="button" href="{% url 'claim:claim' resource.id %}" class="btn btn-primary {% if not resource.available %}disabled{% endif %}">Claim</a>
+	<form action="{% url 'claim:claim' resource.id %}" method="post" role="form">
+		{% csrf_token %}
+		<fieldset>
+			<div class="form-group">
+				<label for="userEmailAddress" class="sr-only">Email</label>
+				<input type="email" name="userEmailAddress" placeholder="Your Email Address" id="userEmailAddress" class="form-control" required {% if not resource.available %}disabled{% endif %}>
+			</div>
+			<div class="form-group">
+				<label for="friendEmailAddress" class="sr-only">Email</label>
+				<input type="email" name="friendEmailAddress" placeholder="Your Competitor's Email Address" id="friendEmailAddress" class="form-control" required {% if not resource.available %}disabled{% endif %}>
+			</div>
+			<button type="submit" title="Claim" class="btn btn-success {% if not resource.available %}disabled{% endif %}">Claim</button>
+		</fieldset>
+	</form>
+	<br>
 	<a type="button" href="{% url 'claim:release' resource.id %}" class="btn btn-primary {% if resource.available %}disabled{% endif %}">Release</a>
 {% endblock content %}

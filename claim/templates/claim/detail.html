@@ -2,6 +2,20 @@
 
 {% block content %}
 	<h2>{{ resource.name }} <small>{% if resource.available %}is available{% else %}reserved {{ resource.minutes_since_reservation }}m ago, available in {{ resource.minutes_to_available }}m{% endif %}</small></h2>
+	{% if resource.game_set.all.0 %}
+	<table class="table">
+		<thead>
+			<th>Home</th>
+			<th>Away</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{ resource.game_set.all.0.homeScore }}</td>
+				<td>{{ resource.game_set.all.0.awayScore }}</td>
+			</tr>
+		</tbody>
+	</table>
+	{% endif %}
 	<form action="{% url 'claim:claim' resource.id %}" method="post" role="form">
 		{% csrf_token %}
 		<fieldset>

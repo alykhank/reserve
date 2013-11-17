@@ -2,6 +2,6 @@
 
 {% block content %}
 	{% for r in resource_list %}
-	<a href="{% url 'claim:detail' r.id %}"><h2>{{ r.name }} <small>{% if r.available %}is available{% else %}is unavailable, reserved on {{ r.reservationTime }} for {{ r.reservationDuration }} minutes (Reserved {{ r.minutes_since_reservation }} minutes ago){% endif %}</small></h2></a>
+	<a href="{% url 'claim:detail' r.id %}"><h2>{{ r.name }} <small>{% if r.available %}is available{% else %}reserved {{ r.minutes_since_reservation }}m ago, available in {{ r.minutes_to_available }}m{% endif %}</small></h2></a>
 	{% endfor %}
 {% endblock content %}

@@ -1,7 +1,7 @@
 {% extends 'claim/base.html' %}
 
 {% block content %}
-	<h2>{{ resource.name }} <small>{% if resource.available %}is available{% else %}is unavailable{% endif %}</small></h2>
+	<h2>{{ resource.name }} <small>{% if resource.available %}is available{% else %}reserved {{ resource.minutes_since_reservation }}m ago, available in {{ resource.minutes_to_available }}m{% endif %}</small></h2>
 	<form action="{% url 'claim:claim' resource.id %}" method="post" role="form">
 		{% csrf_token %}
 		<fieldset>

@@ -28,6 +28,11 @@
 			</button>
 			<a class="navbar-brand" href="{% url 'claim:index' %}">Reserve</a>
 		</div><!-- navbar-header -->
+		<div class="collapse navbar-collapse navbar-ex1-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="{% url 'claim:create' %}">Create New</a></li>
+			</ul>
+		</div><!-- navbar-collapse -->
 	</nav>
 	{% if messages %}
 		{% for message in messages %}

@@ -1,0 +1,48 @@
+- model: claim.resource
+  pk: 1
+  fields:
+    name: Foosball Table 1
+    reservationTime: 2013-01-01 00:00:00
+    reservationDuration: 15
+- model: claim.resource
+  pk: 2
+  fields:
+    name: Foosball Table 2
+    reservationTime: 2013-01-01 00:00:00
+    reservationDuration: 15
+- model: claim.resource
+  pk: 3
+  fields:
+    name: Foosball Table 3
+    reservationTime: 2013-01-01 00:00:00
+    reservationDuration: 15
+- model: claim.resource
+  pk: 4
+  fields:
+    name: Foosball Table 4
+    reservationTime: 2013-01-01 00:00:00
+    reservationDuration: 15
+- model: claim.resource
+  pk: 5
+  fields:
+    name: Pool Table 1
+    reservationTime: 2013-01-01 00:00:00
+    reservationDuration: 15
+- model: claim.resource
+  pk: 6
+  fields:
+    name: Pool Table 2
+    reservationTime: 2013-01-01 00:00:00
+    reservationDuration: 15
+- model: claim.resource
+  pk: 7
+  fields:
+    name: Pool Table 3
+    reservationTime: 2013-01-01 00:00:00
+    reservationDuration: 15
+- model: claim.resource
+  pk: 8
+  fields:
+    name: Pool Table 4
+    reservationTime: 2013-01-01 00:00:00
+    reservationDuration: 15

@@ -1,3 +1,7 @@
-{% for r in resource_list %}
-<p>{{ r.name }}: {{ r.available }}</p>
-{% endfor %}
+{% extends 'claim/base.html' %}
+
+{% block content %}
+	{% for r in resource_list %}
+	<p>{{ r.name }}: {{ r.available }}</p>
+	{% endfor %}
+{% endblock content %}

@@ -18,3 +18,10 @@ class Resource(models.Model):
 
 	def __unicode__(self):
 		return self.name
+
+class Game(models.Model):
+	resource = models.ForeignKey(Resource)
+	player1 = models.CharField(max_length=200)
+	player2 = models.CharField(max_length=200)
+	homeScore = models.PositiveIntegerField()
+	awayScore = models.PositiveIntegerField()

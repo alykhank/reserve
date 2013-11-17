@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
 
-from claim.models import Resource
+from claim.models import Resource, Game
 
 class ResourceCreate(generic.edit.CreateView):
 	model = Resource
@@ -30,6 +30,7 @@ def claim(request, pk):
 		resource.available = False
 		resource.reservationTime = timezone.now()
 		resource.save()
+		game = Game(resource, userEmail, friendEmail)
 		send_mail('[Reserve] ' + resource.name + ' Claimed', 'A match between ' + userEmail + ' and ' + friendEmail + ' will now commence.', settings.SERVER_EMAIL, [userEmail, friendEmail], fail_silently=False)
 	else:
 		messages.error(request, 'Resource is unavailable.')
